@@ -253,7 +253,7 @@ code {
                 /// </summary>
                 public List<Image> ScreenShots;
 
-                public List<string[]> Pages=new List<string[]>();
+                public List<string[]> Pages = new List<string[]>();
 
                 /// <summary>
                 /// The folder which contains the documentation files.
@@ -277,7 +277,7 @@ code {
                     {
                         if (Path.GetExtension(file) == ".md")
                         {
-                            Pages.Add(new string[] {Path.GetFileNameWithoutExtension(file), PrependHTML + markdown.Transform(File.ReadAllText(file)) });
+                            Pages.Add(new string[] { Path.GetFileNameWithoutExtension(file), PrependHTML + markdown.Transform(File.ReadAllText(file)) });
                         }
                     }
 
