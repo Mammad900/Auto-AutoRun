@@ -200,7 +200,7 @@ code {
                             FilePath = file;
                         if (file.ToLower().EndsWith($@"\{fileName.ToLower()}.txt"))
                         {
-                            var fn = File.ReadAllText(file).Trim('\n', ' ', '\t');
+                            var fn = File.ReadAllText(file).Trim('\n', ' ', '\t', '\\');
                             FilePath = dir + fn;
                         }
                     }
