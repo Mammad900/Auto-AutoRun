@@ -49,6 +49,9 @@ namespace Auto_AutoRun
 
         private void AppsTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            SuspendLayout();
+
+
             Apps.CollectionNode app = (Apps.CollectionNode)e.Node.Tag;
 
             #region Name and icon
@@ -64,6 +67,9 @@ namespace Auto_AutoRun
             #endregion
 
             #region Versions
+            VersionSelect.BeginUpdate();
+
+
             VersionSelect.Items.Clear();
             if (app.Versions.Count > 0)
             {
@@ -83,9 +89,13 @@ namespace Auto_AutoRun
                 VersionActions.Visible = false;
                 label1.Visible = false;
             }
+
+            VersionSelect.EndUpdate();
             #endregion
 
             #region Docs
+            Tabs.SuspendLayout();
+
             if (app.Docs == null)
                 Tabs.Visible = false;
             else
@@ -133,9 +143,13 @@ namespace Auto_AutoRun
                     }
                 }
             }
+
+            Tabs.ResumeLayout();
             #endregion
-            
+
             #region Actions
+            Actions.SuspendLayout();
+
             Actions.Controls.Clear();
             foreach (var item in app.Actions)
             {
@@ -147,7 +161,12 @@ namespace Auto_AutoRun
                 btn.MouseUp += new MouseEventHandler( OpenResourceFolderButton);
                 Actions.Controls.Add(btn);
             }
+
+            Actions.ResumeLayout();
             #endregion
+
+
+            ResumeLayout();
         }
 
         private void OpenResourceButton(object sender, EventArgs e)
