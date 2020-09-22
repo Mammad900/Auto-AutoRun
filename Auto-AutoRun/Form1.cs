@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Auto_AutoRun
@@ -18,6 +19,20 @@ namespace Auto_AutoRun
             rootnode = Apps.Load(@"E:\App\");
             AppsTree.Nodes.Add(populateTree(rootnode));
             AppsTree.SelectedNode = AppsTree.Nodes[0];
+
+            var fil = Environment.CurrentDirectory + "\\Icon.ico";
+            if (File.Exists(fil))
+            {
+                Icon = new Icon(fil);
+            }
+            else if ((rootnode.Docs != null) && (rootnode.Docs.Icon != null))
+            {
+                var bmp = new Bitmap(rootnode.Docs.Icon);
+                var thumb = (Bitmap)bmp.GetThumbnailImage(24, 24, null, IntPtr.Zero);
+                thumb.MakeTransparent();
+                Icon = Icon.FromHandle(thumb.GetHicon());
+            }
+            Text = rootnode.Name;
         }
 
         TreeNode populateTree(Apps.CollectionNode root)
