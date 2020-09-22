@@ -34,7 +34,7 @@
             this.Screenshots = new System.Windows.Forms.FlowLayoutPanel();
             this.AppIcon = new System.Windows.Forms.PictureBox();
             this.AppTitle = new System.Windows.Forms.Label();
-            this.Resources = new System.Windows.Forms.FlowLayoutPanel();
+            this.Actions = new System.Windows.Forms.FlowLayoutPanel();
             this.VersionSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.VersionActions = new System.Windows.Forms.FlowLayoutPanel();
@@ -106,13 +106,13 @@
             // 
             // Resources
             // 
-            this.Resources.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.Actions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Resources.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.Resources.Location = new System.Drawing.Point(293, 12);
-            this.Resources.Name = "Resources";
-            this.Resources.Size = new System.Drawing.Size(518, 32);
-            this.Resources.TabIndex = 8;
+            this.Actions.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.Actions.Location = new System.Drawing.Point(293, 12);
+            this.Actions.Name = "Resources";
+            this.Actions.Size = new System.Drawing.Size(518, 32);
+            this.Actions.TabIndex = 8;
             // 
             // VersionSelect
             // 
@@ -155,10 +155,9 @@
             this.Controls.Add(this.AppIcon);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.AppsTree);
-            this.Controls.Add(this.Resources);
+            this.Controls.Add(this.Actions);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "App collection";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Tabs.ResumeLayout(false);
             this.ScreenshotTab.ResumeLayout(false);
@@ -176,7 +175,7 @@
         private System.Windows.Forms.FlowLayoutPanel Screenshots;
         private System.Windows.Forms.PictureBox AppIcon;
         private System.Windows.Forms.Label AppTitle;
-        private System.Windows.Forms.FlowLayoutPanel Resources;
+        private System.Windows.Forms.FlowLayoutPanel Actions;
         private System.Windows.Forms.ComboBox VersionSelect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel VersionActions;

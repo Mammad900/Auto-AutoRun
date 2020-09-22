@@ -136,7 +136,7 @@ namespace Auto_AutoRun
             #endregion
             
             #region Actions
-            Resources.Controls.Clear();
+            Actions.Controls.Clear();
             foreach (var item in app.Actions)
             {
                 Button btn = new Button();
@@ -145,7 +145,7 @@ namespace Auto_AutoRun
                 btn.Tag = item;
                 btn.Click += new EventHandler( OpenResourceButton);
                 btn.MouseUp += new MouseEventHandler( OpenResourceFolderButton);
-                Resources.Controls.Add(btn);
+                Actions.Controls.Add(btn);
             }
             #endregion
         }
@@ -220,4 +220,5 @@ namespace Auto_AutoRun
             #endregion
         }
     }
+
 }
