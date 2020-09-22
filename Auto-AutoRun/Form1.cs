@@ -12,11 +12,10 @@ namespace Auto_AutoRun
         {
             InitializeComponent();
         }
-
+        Apps.CollectionNode rootnode;
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            var rootnode = Apps.Load(@"E:\App");
+            rootnode = Apps.Load(@"E:\App\");
             AppsTree.Nodes.Add(populateTree(rootnode));
             AppsTree.SelectedNode = AppsTree.Nodes[0];
         }
