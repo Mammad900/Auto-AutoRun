@@ -16,7 +16,7 @@ namespace Auto_AutoRun
         Apps.CollectionNode rootnode;
         private void Form1_Load(object sender, EventArgs e)
         {
-            rootnode = Apps.Load(@"E:\App\");
+            rootnode = Apps.Load(Environment.CurrentDirectory);
             AppsTree.Nodes.Add(populateTree(rootnode));
             AppsTree.SelectedNode = AppsTree.Nodes[0];
 
