@@ -105,13 +105,13 @@
             this.AppTitle.TabIndex = 7;
             this.AppTitle.Text = "Loading...";
             // 
-            // Resources
+            // Actions
             // 
             this.Actions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Actions.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.Actions.Location = new System.Drawing.Point(293, 12);
-            this.Actions.Name = "Resources";
+            this.Actions.Name = "Actions";
             this.Actions.Size = new System.Drawing.Size(518, 32);
             this.Actions.TabIndex = 8;
             // 
