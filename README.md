@@ -174,6 +174,34 @@ Versions are used to have different versions of a software in a single [node](#n
 2. Create the [actions](#actions) inside the version folder, as you did when creating [nodes](#nodes).
 3. ***[Optional]*** Create a markdown file named `info.md` to show it as a separate tab named "version: < version name >". You can insert a changelog or breaking changes warning there.
 
+#### Folder tree example
+
+- `Visual Studio` -> Node
+  - `_docs` -> Documentation
+    - ...
+  - `v2015`
+    - `info.md` -> Contains new features in vs2015
+    - `_Install`
+      - ...
+  - `v2017`
+    - `info.md` -> Contains new features in vs2017
+    - `_Install`
+      - ...
+  - `v2019`
+    - `info.md` -> Contains new features in vs2019
+    - `_Install`
+      - ...
+
+#### Appearance in AutoRun interface
+
+A drop-down (combo-box) appears below the title of the node, with which you can select the version you want to install.
+
+Version actions are shown as node actions, but with a little difference:
+
+- Only the actions of the selected version can be seen
+- They appear below the node actions (a bit lower in position)
+- Middle-click does not work with it (although it is implemented)
+
 ## How to use it inside a CD or DVD
 
 NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
