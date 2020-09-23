@@ -4,7 +4,7 @@ Auto-AutoRun is an auto-run for those who want to distribute apps using CDs/DVDs
 
 It uses a tree view to show apps, which is populated depending on the contents of the disk.
 
-To use this auto-run you need to be able to:
+To use this auto-run you (distributor) need to be able to:
 
 - Use [GitHub](https://github.com)
 - Work with file explorer
