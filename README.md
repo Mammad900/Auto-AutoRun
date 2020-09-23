@@ -178,7 +178,7 @@ Versions are used to have different versions of a software in a single [node](#n
 
 NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
 
-1. Download Auto-AutoRun executable from the [releases](./releases) section and copy it to the root of the CD/DVD with the name `autorun.exe`
+1. Download Auto-AutoRun executable from the [releases](https://github.com/Mammad900/Auto-AutoRun/releases) section and copy it to the root of the CD/DVD with the name `autorun.exe`
 2. ***[Optional]*** Copy the icon with `.ico` format to the root folder with the name `Icon.ico`
 3. Create a file named `autorun.inf`, open it with notepad (which is usually default) and copy-paste the following into it:
 
@@ -188,5 +188,6 @@ NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
    ICON=Icon.ico
    ```
 
-4. Copy the contents of the root node into the root folder (not the folder itself)
-5. Now your app CD/DVD is ready! (Test it before publishing)
+4. Change the label of the CD/DVD because it 
+5. Copy the contents of the root node into the root folder (not the folder itself)
+6. Now your app CD/DVD is ready! (Test it before publishing)
