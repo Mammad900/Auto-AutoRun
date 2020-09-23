@@ -42,7 +42,7 @@ namespace Auto_AutoRun
                     Text = rootnode.Name;
                 }),res);
             };
-            back.RunWorkerAsync("E:\\App");
+            back.RunWorkerAsync(Environment.CurrentDirectory);
         }
 
         TreeNode populateTree(Apps.CollectionNode root)
