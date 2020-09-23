@@ -127,6 +127,7 @@ namespace Auto_AutoRun
                     browser.Dock = DockStyle.Fill;
                     browser.Url = new Uri("about:blank");
                     browser.Document.Write(page[1]);
+                    browser.Navigating += webBrowser_Navigating;
                     tab.Controls.Add(browser);
 
                     Tabs.TabPages.Insert(Math.Max(Tabs.TabPages.Count - 1,0), tab);
@@ -243,10 +244,20 @@ namespace Auto_AutoRun
                 browser.Url = new Uri("about:blank");
                 browser.Document.Write(version.VersionInfo);
                 browser.Dock = DockStyle.Fill;
+                browser.Navigating += webBrowser_Navigating;
                 tab.Controls.Add(browser);
                 Tabs.TabPages.Add(tab);
             }
             #endregion
+        }
+
+        private void webBrowser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            if (!(e.Url.ToString().Equals("about:blank", StringComparison.InvariantCultureIgnoreCase)))
+            {
+                System.Diagnostics.Process.Start(e.Url.ToString());
+                e.Cancel = true;
+            }
         }
     }
 
