@@ -16,23 +16,33 @@ namespace Auto_AutoRun
         Apps.CollectionNode rootnode;
         private void Form1_Load(object sender, EventArgs e)
         {
-            rootnode = Apps.Load(Environment.CurrentDirectory);
-            AppsTree.Nodes.Add(populateTree(rootnode));
-            AppsTree.SelectedNode = AppsTree.Nodes[0];
+            System.ComponentModel.BackgroundWorker back = new System.ComponentModel.BackgroundWorker();
+            back.DoWork += (object sender2, System.ComponentModel.DoWorkEventArgs e2) =>
+            {
+                var s= e2.Argument as string;
+                var res = Apps.Load(s);
+                Invoke(new Action<Apps.CollectionNode>((Apps.CollectionNode root) =>
+                {
+                    rootnode = root;
+                    AppsTree.Nodes.Add(populateTree(rootnode));
+                    AppsTree.SelectedNode = AppsTree.Nodes[0];
 
-            var fil = Environment.CurrentDirectory + "\\Icon.ico";
-            if (File.Exists(fil))
-            {
-                Icon = new Icon(fil);
-            }
-            else if ((rootnode.Docs != null) && (rootnode.Docs.Icon != null))
-            {
-                var bmp = new Bitmap(rootnode.Docs.Icon);
-                var thumb = (Bitmap)bmp.GetThumbnailImage(24, 24, null, IntPtr.Zero);
-                thumb.MakeTransparent();
-                Icon = Icon.FromHandle(thumb.GetHicon());
-            }
-            Text = rootnode.Name;
+                    var fil = Environment.CurrentDirectory + "\\Icon.ico";
+                    if (File.Exists(fil))
+                    {
+                        Icon = new Icon(fil);
+                    }
+                    else if ((rootnode.Docs != null) && (rootnode.Docs.Icon != null))
+                    {
+                        var bmp = new Bitmap(rootnode.Docs.Icon);
+                        var thumb = (Bitmap)bmp.GetThumbnailImage(24, 24, null, IntPtr.Zero);
+                        thumb.MakeTransparent();
+                        Icon = Icon.FromHandle(thumb.GetHicon());
+                    }
+                    Text = rootnode.Name;
+                }),res);
+            };
+            back.RunWorkerAsync("E:\\App");
         }
 
         TreeNode populateTree(Apps.CollectionNode root)

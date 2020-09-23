@@ -101,8 +101,9 @@
             this.AppTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.Location = new System.Drawing.Point(280, 15);
             this.AppTitle.Name = "AppTitle";
-            this.AppTitle.Size = new System.Drawing.Size(0, 25);
+            this.AppTitle.Size = new System.Drawing.Size(97, 25);
             this.AppTitle.TabIndex = 7;
+            this.AppTitle.Text = "Loading...";
             // 
             // Resources
             // 
