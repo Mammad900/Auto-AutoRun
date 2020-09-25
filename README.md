@@ -39,6 +39,7 @@ Nodes can be either folder or apps. They appear as items in the apps tree.
 #### Folder tree example
 
 - `Auto-AutoRun.exe`
+- `MarkdownSharp.dll`
 - `Apps` -> Root Node
   - `Browsers` -> Node
     - `Chrome` -> Node
@@ -206,9 +207,10 @@ Version actions are shown as node actions, but with a little difference:
 
 NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
 
-1. Download Auto-AutoRun executable from the [releases](https://github.com/Mammad900/Auto-AutoRun/releases) section and copy it to the root of the CD/DVD with the name `autorun.exe`
-2. ***[Optional]*** Copy the icon with `.ico` format to the root folder with the name `Icon.ico`
-3. Create a file named `autorun.inf`, open it with notepad (which is usually default) and copy-paste the following into it:
+1. Download Auto-AutoRun executable (`Auto-AutoRun.exe`) from the [releases](https://github.com/Mammad900/Auto-AutoRun/releases) page and copy it to the root of the CD/DVD with the name `autorun.exe`
+2. Download `MarkdownSharp.dll` from the [releases](https://github.com/Mammad900/Auto-AutoRun/releases) page and copy it to the root of the CD/DVD with the name `MarkdownSharp.dll`
+3. ***[Optional]*** Copy the icon with `.ico` format to the root folder with the name `Icon.ico`
+4. Create a file named `autorun.inf`, open it with notepad (which is usually default) and copy-paste the following into it:
 
    ```properties
    [AutoRun]
