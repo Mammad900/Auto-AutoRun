@@ -49,7 +49,7 @@ namespace Auto_AutoRun
                     ResumeLayout();
                 }),res);
             };
-            back.RunWorkerAsync(Environment.CurrentDirectory);
+            back.RunWorkerAsync(Environment.CurrentDirectory+"\\");
         }
 
         TreeNode populateTree(Apps.CollectionNode root)
