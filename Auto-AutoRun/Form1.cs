@@ -28,6 +28,7 @@ namespace Auto_AutoRun
                     AppsTree.SelectedNode = AppsTree.Nodes[0];
 
                     var fil = Environment.CurrentDirectory + "\\Icon.ico";
+                    ShowIcon = true;
                     if (File.Exists(fil))
                     {
                         Icon = new Icon(fil);
@@ -38,6 +39,10 @@ namespace Auto_AutoRun
                         var thumb = (Bitmap)bmp.GetThumbnailImage(24, 24, null, IntPtr.Zero);
                         thumb.MakeTransparent();
                         Icon = Icon.FromHandle(thumb.GetHicon());
+                    }
+                    else
+                    {
+                        ShowIcon = false;
                     }
                     Text = rootnode.Name;
                 }),res);
