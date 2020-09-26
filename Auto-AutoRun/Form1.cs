@@ -16,6 +16,7 @@ namespace Auto_AutoRun
         Apps.CollectionNode rootnode;
         private void Form1_Load(object sender, EventArgs e)
         {
+            SuspendLayout();
             System.ComponentModel.BackgroundWorker back = new System.ComponentModel.BackgroundWorker();
             back.DoWork += (object sender2, System.ComponentModel.DoWorkEventArgs e2) =>
             {
@@ -45,6 +46,7 @@ namespace Auto_AutoRun
                         ShowIcon = false;
                     }
                     Text = rootnode.Name;
+                    ResumeLayout();
                 }),res);
             };
             back.RunWorkerAsync(Environment.CurrentDirectory);
