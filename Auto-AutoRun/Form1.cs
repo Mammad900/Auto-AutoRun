@@ -9,14 +9,19 @@ namespace Auto_AutoRun
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        string[] args;
+        public Form1(string[] args)
         {
+            this.args = args;
             InitializeComponent();
         }
         Apps.CollectionNode rootnode;
         private void Form1_Load(object sender, EventArgs e)
         {
             SuspendLayout();
+
+            var path = ( (args.Length==1) ? (args[0]) : (Environment.CurrentDirectory + "\\") );
+
             System.ComponentModel.BackgroundWorker back = new System.ComponentModel.BackgroundWorker();
             back.DoWork += (object sender2, System.ComponentModel.DoWorkEventArgs e2) =>
             {
@@ -49,7 +54,7 @@ namespace Auto_AutoRun
                     ResumeLayout();
                 }),res);
             };
-            back.RunWorkerAsync(Environment.CurrentDirectory+"\\");
+            back.RunWorkerAsync(path);
         }
 
         TreeNode populateTree(Apps.CollectionNode root)
