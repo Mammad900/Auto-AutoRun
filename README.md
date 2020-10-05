@@ -6,7 +6,6 @@ It uses a tree view to show apps, which is populated depending on the contents o
 
 To use this auto-run you (distributor) need to be able to:
 
-- Use [GitHub](https://github.com)
 - Work with file explorer
 - Write markdown files (markdown is an easy to learn markup language)
 
