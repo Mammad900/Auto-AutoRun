@@ -22,6 +22,11 @@ namespace Auto_AutoRun
 
             var path = ( (args.Length==1) ? (args[0]) : (Environment.CurrentDirectory + "\\") );
 
+            if (path.StartsWith("\"")) path = path.Substring(1);
+            if (path.EndsWith("\"")) path = path.Substring(0, path.Length - 1);
+            if (!path.EndsWith("\\")) path += "\\";
+            path = path.Replace("/", "\"");
+
             System.ComponentModel.BackgroundWorker back = new System.ComponentModel.BackgroundWorker();
             back.DoWork += (object sender2, System.ComponentModel.DoWorkEventArgs e2) =>
             {
