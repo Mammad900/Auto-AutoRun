@@ -85,6 +85,7 @@
             this.Screenshots.Name = "Screenshots";
             this.Screenshots.Size = new System.Drawing.Size(555, 357);
             this.Screenshots.TabIndex = 0;
+            this.Screenshots.SizeChanged += new System.EventHandler(this.Screenshots_SizeChanged);
             // 
             // AppIcon
             // 

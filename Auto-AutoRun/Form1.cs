@@ -161,7 +161,7 @@ namespace Auto_AutoRun
                         var pb = new PictureBox();
                         pb.Image = item;
                         pb.SizeMode = PictureBoxSizeMode.Zoom;
-                        pb.Size = new Size(600, 400);
+                        pb.Size = GetScreenShotSize(pb, Screenshots);
                         Screenshots.Controls.Add(pb);
                     }
                 }
@@ -270,6 +270,22 @@ namespace Auto_AutoRun
                 System.Diagnostics.Process.Start(e.Url.ToString());
                 e.Cancel = true;
             }
+        }
+
+        private void Screenshots_SizeChanged(object sender, EventArgs e)
+        {
+            Screenshots.SuspendLayout();
+            foreach (Control ctrl in Screenshots.Controls)
+            {
+                ctrl.Size = GetScreenShotSize(ctrl as PictureBox, Screenshots);
+            }
+            Screenshots.ResumeLayout();
+        }
+        private Size GetScreenShotSize(PictureBox image,Control container)
+        {
+            var h = 5 + (int)Math.Min(container.ClientSize.Width * ((image.Image.Height * 1.0) / image.Image.Width), 500);
+            var w = Screenshots.ClientSize.Width - 10;
+            return new Size(w, h);
         }
     }
 
