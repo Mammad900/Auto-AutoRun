@@ -124,7 +124,8 @@ namespace Auto_AutoRun
             {
                 Tabs.Visible = true;
 
-                foreach(TabPage tab in Tabs.TabPages)
+                #region Pages
+                foreach (TabPage tab in Tabs.TabPages)
                 {
                     if (tab == ScreenshotTab)
                         continue;
@@ -144,6 +145,9 @@ namespace Auto_AutoRun
 
                     Tabs.TabPages.Insert(Math.Max(Tabs.TabPages.Count - 1,0), tab);
                 }
+                #endregion
+
+                #region Screen shots
 
                 if (app.Docs.ScreenShots == null)
                 {
@@ -165,6 +169,7 @@ namespace Auto_AutoRun
                         Screenshots.Controls.Add(pb);
                     }
                 }
+                #endregion
             }
 
             Tabs.ResumeLayout();
