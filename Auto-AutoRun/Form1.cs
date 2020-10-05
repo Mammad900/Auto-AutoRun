@@ -156,6 +156,7 @@ namespace Auto_AutoRun
                 }
                 else
                 {
+                    ScreenshotTab.Text = app.Docs.ScreenShotsDirectoryName;
                     if (!Tabs.TabPages.Contains(ScreenshotTab))
                         Tabs.TabPages.Add(ScreenshotTab);
 
