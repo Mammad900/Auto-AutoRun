@@ -129,7 +129,7 @@ A documentation can contain one or more markdown files to be displayed, an icon,
 
 1. Create a folder named `Screenshots` inside the `_docs` directory
 
-   **Note: You can use any name for the folder, which will be the tab name.
+   **Note: You can use any name for the folder, which will be the tab name.**
 2. Inside the folder, insert image files. Most popular formats except `.webp` and `.svg` are supported.
 
 #### Folder tree example
