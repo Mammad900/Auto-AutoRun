@@ -25,7 +25,7 @@ namespace Auto_AutoRun
             if (path.StartsWith("\"")) path = path.Substring(1);
             if (path.EndsWith("\"")) path = path.Substring(0, path.Length - 1);
             if (!path.EndsWith("\\")) path += "\\";
-            path = path.Replace("/", "\"");
+            path = path.Replace("/", "\\");
 
             System.ComponentModel.BackgroundWorker back = new System.ComponentModel.BackgroundWorker();
             back.DoWork += (object sender2, System.ComponentModel.DoWorkEventArgs e2) =>
