@@ -37,7 +37,11 @@ namespace Auto_AutoRun
             back.DoWork += (object sender2, System.ComponentModel.DoWorkEventArgs e2) =>
             {
                 var s= e2.Argument as string;
-                var res = Apps.Load(s);
+                Apps.CollectionNode res=null;
+                TryRunCode("loading nodes", () =>
+                {
+                    res = Apps.Load(s);
+                });
                 Invoke(new Action<Apps.CollectionNode>((Apps.CollectionNode root) =>
                 {
                     rootnode = root;
