@@ -219,6 +219,6 @@ NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
    ICON=Icon.ico
    ```
 
-4. Change the label of the CD/DVD because it 
-5. Copy the contents of the root node into the root folder (not the folder itself)
-6. Now your app CD/DVD is ready! (Test it before publishing)
+5. Change the label of the CD/DVD because it will be root node-s name and Auto-AutoRun window title.
+6. Copy the contents of the root node into the root folder (not the folder itself)
+7. Now your app CD/DVD is ready! (Test it before publishing)
