@@ -24,7 +24,7 @@ namespace Auto_AutoRun
             string path="";
             TryRunCode("resolving root node path", () =>
              {
-                 path = ((args.Length == 0) ? (args[0]) : (Environment.CurrentDirectory + "\\"));
+                 path = ((args.Length == 1) ? (args[0]) : (Environment.CurrentDirectory + "\\"));
 
                  if (path.StartsWith("\"")) path = path.Substring(1);
                  if (path.EndsWith("\"")) path = path.Substring(0, path.Length - 1);
