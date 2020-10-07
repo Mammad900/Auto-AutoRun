@@ -20,12 +20,18 @@ namespace Auto_AutoRun
         {
             SuspendLayout();
 
-            var path = ( (args.Length==1) ? (args[0]) : (Environment.CurrentDirectory + "\\") );
 
-            if (path.StartsWith("\"")) path = path.Substring(1);
-            if (path.EndsWith("\"")) path = path.Substring(0, path.Length - 1);
-            if (!path.EndsWith("\\")) path += "\\";
-            path = path.Replace("/", "\\");
+            string path="";
+            TryRunCode("resolving root node path", () =>
+             {
+                 path = ((args.Length == 0) ? (args[0]) : (Environment.CurrentDirectory + "\\"));
+
+                 if (path.StartsWith("\"")) path = path.Substring(1);
+                 if (path.EndsWith("\"")) path = path.Substring(0, path.Length - 1);
+                 if (!path.EndsWith("\\")) path += "\\";
+                 path = path.Replace("/", "\\");
+             });
+
 
             System.ComponentModel.BackgroundWorker back = new System.ComponentModel.BackgroundWorker();
             back.DoWork += (object sender2, System.ComponentModel.DoWorkEventArgs e2) =>
@@ -297,6 +303,34 @@ namespace Auto_AutoRun
             var h = 5 + (int)Math.Min(container.ClientSize.Width * ((image.Image.Height * 1.0) / image.Image.Width), 500);
             var w = Screenshots.ClientSize.Width - 10;
             return new Size(w, h);
+        }
+
+        void TryRunCode(string message,Action act)
+        {
+
+            try
+            {
+                act();
+            }
+            catch (Exception ex)
+            {
+                switch (MessageBox.Show(
+                    "Error "+message+": " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.AbortRetryIgnore,
+                    MessageBoxIcon.Error))
+                {
+                    case DialogResult.Abort:
+                        Application.Exit();
+                        break;
+                    case DialogResult.Retry:
+                        TryRunCode(message, act);
+                        break;
+                    case DialogResult.Ignore:
+                        throw;
+                }
+                return;
+            }
         }
     }
 
