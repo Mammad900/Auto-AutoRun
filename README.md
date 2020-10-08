@@ -19,6 +19,27 @@ The window contains:
 
 ## How to make a folder tree for use with Auto-AutoRun
 
+### Markdown files
+
+You can learn markdown [here](https://www.markdowntutorial.com/).
+
+The markdown files appear the same as they do in github.com. (This document you are reading is a markdown file viewed on github.com)
+
+Links inside markdown files can have special URIs, which can link to:
+
+- [Nodes](#nodes): use this format: `node://path/to/node`. If the user clicks on this link, the target node will be selected and viewed, as if it was clicked in nodes tree.
+- [Actions](#actions): There are to types:
+  - `runaction://path/to/node/action-name`: If the user clicks on the link, the action will be invoked (it's file will be opened), as if it's button was clicked.
+  - `showaction://path/to/node/action-name`: If the user clicks on the link, the action's file will be shown in file explorer, as if it's button was middle-clicked (clicked with middle mouse button).
+
+**Note: raplace `path/to/node` in URIs with the path to your node, for example in this node tree the node `Chrome` is the target:**
+
+- `Apps`
+  - `Browsers`
+    - `Chrome`
+
+**The path to `Chrome` is `Browsers/Chrome`. Note that `Apps` isn't included in the path.**
+
 ### Nodes
 
 #### Description
