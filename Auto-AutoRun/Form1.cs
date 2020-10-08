@@ -302,7 +302,7 @@ namespace Auto_AutoRun
                 }
                 if (e.Url.Scheme.ToLower() == "runaction")
                 {
-                    var path = rootnode.Name + "\\" + (((e.Url.Host)+(e.Url.AbsolutePath)).Replace("/", "\\").Trim('\\'));
+                    var path = rootnode.Name + "\\" + (((e.Url.Host) + (e.Url.AbsolutePath)).Replace("/", "\\").Trim('\\'));
                     var pathparts = path.Split('\\');
                     var actionname = pathparts[pathparts.Length - 1];
                     var nodepath = path.Replace(actionname, "").Trim('\\');
@@ -311,7 +311,7 @@ namespace Auto_AutoRun
 
                     IEnumerable<Apps.CollectionNode.NodeAction> matchedActions =
                         from action in (node.Tag as Apps.CollectionNode).Actions
-                        where action.Name.ToLower().Replace(' ','-') == actionname.ToLower()
+                        where action.Name.ToLower().Replace(' ', '-') == actionname.ToLower()
                         select action;
 
                     var firstMatchingAction = matchedActions.First();
