@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Auto_AutoRun
@@ -297,6 +298,25 @@ namespace Auto_AutoRun
                     var node = GetNodeFromPath(AppsTree.Nodes[0], path);
                     if (node == null) return;
                     AppsTree.SelectedNode = node;
+                    return;
+                }
+                if (e.Url.Scheme.ToLower() == "runaction")
+                {
+                    var path = rootnode.Name + "\\" + (((e.Url.Host)+(e.Url.AbsolutePath)).Replace("/", "\\").Trim('\\'));
+                    var pathparts = path.Split('\\');
+                    var actionname = pathparts[pathparts.Length - 1];
+                    var nodepath = path.Replace(actionname, "").Trim('\\');
+                    var node = GetNodeFromPath(AppsTree.Nodes[0], nodepath);
+                    if (node == null) return;
+
+                    IEnumerable<Apps.CollectionNode.NodeAction> matchedActions =
+                        from action in (node.Tag as Apps.CollectionNode).Actions
+                        where action.Name.ToLower().Replace(' ','-') == actionname.ToLower()
+                        select action;
+
+                    var firstMatchingAction = matchedActions.First();
+
+                    firstMatchingAction.Open();
                     return;
                 }
 
