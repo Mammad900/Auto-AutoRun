@@ -243,3 +243,11 @@ NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
 5. Change the label of the CD/DVD because it will be root node-s name and Auto-AutoRun window title.
 6. Copy the contents of the root node into the root folder (not the folder itself)
 7. Now your app CD/DVD is ready! (Test it before publishing)
+   
+   The CD's folder tree should look like this:
+
+   - autorun.exe
+   - MarkDownSharp.dll
+   - Icon.ico
+   - autorun.inf
+   - \<root nodes\>
