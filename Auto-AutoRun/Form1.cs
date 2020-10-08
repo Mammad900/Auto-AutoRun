@@ -30,6 +30,8 @@ namespace Auto_AutoRun
                  if (path.EndsWith("\"")) path = path.Substring(0, path.Length - 1);
                  if (!path.EndsWith("\\")) path += "\\";
                  path = path.Replace("/", "\\");
+
+                 if (path.StartsWith(@".\")) path = path.Replace(@".\", Environment.CurrentDirectory + "\\");
              });
 
 
