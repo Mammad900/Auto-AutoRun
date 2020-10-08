@@ -290,9 +290,37 @@ namespace Auto_AutoRun
         {
             if (!(e.Url.ToString().Equals("about:blank", StringComparison.InvariantCultureIgnoreCase)))
             {
-                System.Diagnostics.Process.Start(e.Url.ToString());
                 e.Cancel = true;
+                if (e.Url.Scheme.ToLower() == "node")
+                {
+                    var path = rootnode.Name + "\\" + (e.Url.AbsolutePath.Replace("/", "\\").Trim('\\'));
+                    var node = GetNodeFromPath(AppsTree.Nodes[0], path);
+                    if (node == null) return;
+                    AppsTree.SelectedNode = node;
+                    return;
+                }
+
+                System.Diagnostics.Process.Start(e.Url.ToString());
             }
+        }
+
+        public TreeNode GetNodeFromPath(TreeNode node, string path)
+        {
+            TreeNode foundNode = null;
+            foreach (TreeNode tn in node.Nodes)
+            {
+                if (tn.FullPath.ToLower().Replace(' ','-') == path.ToLower())
+                {
+                    return tn;
+                }
+                else if (tn.Nodes.Count > 0)
+                {
+                    foundNode = GetNodeFromPath(tn, path);
+                }
+                if (foundNode != null)
+                    return foundNode;
+            }
+            return null;
         }
 
         private void Screenshots_SizeChanged(object sender, EventArgs e)
