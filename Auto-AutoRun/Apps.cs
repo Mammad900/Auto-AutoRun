@@ -19,7 +19,8 @@ namespace Autorun_API
         public static string ReadMarkDown(string file)
         {
             var markdown = new MarkdownSharp.Markdown();
-            return PrependHTML + markdown.Transform(File.ReadAllText(file));
+            var html= PrependHTML +"<div class='markdown-body'>"+ markdown.Transform(File.ReadAllText(file))+"</div>";
+            return html;
         }
 
         /// <summary>
@@ -38,23 +39,7 @@ namespace Autorun_API
         /// It isn't declared as <code>const</code> so that the user can override it.
         /// </para>
         /// </summary>
-        static string PrependHTML = @"<style>
-    
-h1, h2, h3 {
-    border-bottom: 1px solid #dadada;
-}
-html{
-    font-family: Verdana;
-}
-hr {
-    border: 2px solid #e2e2e2;
-}
-code {
-    background-color: #eaeaea;
-    padding: 3px;
-    border-radius: 5px;
-}
-</style>";
+        static string PrependHTML = Auto_AutoRun.Properties.Resources.github_style_css;
 
         /// <summary>
         /// Scans the given directory and puts the results in <see cref="RootNode"/>
@@ -277,7 +262,7 @@ code {
                     {
                         if (Path.GetExtension(file) == ".md")
                         {
-                            Pages.Add(new string[] { Path.GetFileNameWithoutExtension(file), PrependHTML + markdown.Transform(File.ReadAllText(file)) });
+                            Pages.Add(new string[] { Path.GetFileNameWithoutExtension(file), ReadMarkDown(file) });
                         }
                     }
 
