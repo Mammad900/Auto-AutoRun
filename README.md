@@ -195,7 +195,7 @@ Versions are used to have different versions of a software in a single [node](#n
 
 1. Inside the node folder, create a new folder starting `v`. The rest of the name is the version's name. For example a version with folder name `v5.4.3` has the name `5.4.3`. (Any name can be used as long as it doesn't contain illegal characters for paths (`\/:*?"<>|`))
 2. Create the [actions](#actions) inside the version folder, as you did when creating [nodes](#nodes).
-3. ***[Optional]*** Create a markdown file named `info.md` to show it as a separate tab named "version: < version name >". You can insert a changelog or breaking changes warning there.
+3. ***[Optional]*** Create a markdown file named `info.md` to show it as a separate tab named "version: \<version name\>". You can insert a changelog or breaking changes warning there.
 
 #### Folder tree example
 
