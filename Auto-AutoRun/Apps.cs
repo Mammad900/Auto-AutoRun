@@ -16,10 +16,27 @@ namespace Autorun_API
     public static class Apps
     {
 
-        public static string ReadMarkDown(string file)
+        public static string ReadDocFile(string file)
         {
-            var markdown = new MarkdownSharp.Markdown();
-            var html= PrependHTML +"<div class='markdown-body'>"+ markdown.Transform(File.ReadAllText(file))+"</div>";
+            string html;
+            switch (Path.GetExtension(file))
+            {
+                case ".md":
+                case ".markdown":
+                    var markdown = new MarkdownSharp.Markdown();
+                    html= PrependHTML +"<div class='markdown-body'>"+ markdown.Transform(File.ReadAllText(file))+"</div>";
+                    break;
+                case ".html":
+                case ".htm":
+                case ".xhtml":
+                    html = File.ReadAllText(file);
+                    break;
+                case ".txt":
+                    html = "<div class='markdown-body'>" + (File.ReadAllText(file).Replace("\r\n", "<br/>").Replace("\n\r", "<br/>").Replace("\r", "<br/>").Replace("\n", "<br/>")) + "</div>";
+                    break;
+                default:
+                    throw new NotSupportedException("The file format cannot be converted to HTML or isn't supported by Auto-Autorun");
+            }
             return html;
         }
 
@@ -83,7 +100,7 @@ namespace Autorun_API
                 if (System.IO.Directory.Exists(dir + DocumentationDirectory))
                     Docs = new Documentation(dir + DocumentationDirectory);
 
-                #region Enumerate childs and actions
+                #region Enumerate childs, actions and versions
                 foreach (var File in System.IO.Directory.EnumerateDirectories(dir))
                 {
                     var file = File + '\\';
@@ -102,9 +119,22 @@ namespace Autorun_API
                         ver.Name = child.Name.Substring(1);
                         ver.Actions.Clear();
                         ver.Actions.AddRange(child.Actions);
-                        if (System.IO.File.Exists(file + "info.md"))
+
+                        foreach (string item in new string[] {
+                                "info.md",
+                                "info.markdown",
+                                "info.html",
+                                "info.htm",
+                                "info.xhtml",
+                                "info.txt"
+                            })
                         {
-                            ver.VersionInfo = ReadMarkDown(file + "info.md");
+
+                            if (System.IO.File.Exists(file + item))
+                            {
+                                ver.VersionInfo = ReadDocFile(file + item);
+                                break;
+                            }
                         }
                         Versions.Add(ver);
                         continue;
@@ -260,9 +290,20 @@ namespace Autorun_API
                     MarkdownSharp.Markdown markdown = new MarkdownSharp.Markdown();
                     foreach (var file in System.IO.Directory.EnumerateFiles(dir))
                     {
-                        if (Path.GetExtension(file) == ".md")
+                        foreach (string item in new string[] {
+                                ".md",
+                                ".markdown",
+                                ".html",
+                                ".htm",
+                                ".xhtml",
+                                ".txt"
+                            })
                         {
-                            Pages.Add(new string[] { Path.GetFileNameWithoutExtension(file), ReadMarkDown(file) });
+                            if (Path.GetExtension(file) == item)
+                            {
+                                Pages.Add(new string[] { Path.GetFileNameWithoutExtension(file), ReadDocFile(file) });
+                                break;
+                            }
                         }
                     }
 

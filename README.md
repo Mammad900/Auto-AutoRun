@@ -7,7 +7,8 @@ It uses a tree view to show apps, which is populated depending on the contents o
 To use this auto-run you (distributor) need to be able to:
 
 - Work with file explorer
-- Write markdown files (markdown is an easy to learn markup language)
+- Write markdown files (markdown is an easy to learn markup language)  
+  **OR** HTML files (The markup language for 99.9% of the Internet pages)
 
 The window contains:
 
@@ -19,13 +20,20 @@ The window contains:
 
 ## How to make a folder tree for use with Auto-AutoRun
 
-### Markdown files
+### Docuentation pages
 
 You can learn markdown [here](https://www.markdowntutorial.com/).
+**OR** HTML [here](https://w3schools.com/html)
+
+Markdown files should end with `.md` (recommended) or `.markdown`  
+HTML files should end with `.html` or `.htm`  
+You can use plain text files, with `.txt` extension
 
 The markdown files appear the same as they do in github.com. (This document you are reading is a markdown file viewed on github.com)
 
-Links inside markdown files can have special URIs, which can link to:
+HTML files are shown as they do in a browser (Auto-AutoRun uses something like internet explorer)
+
+Links inside documentation files can have special URIs, which can link to:
 
 - [Nodes](#nodes): use this format: `node://path/to/node`. If the user clicks on this link, the target node will be selected and viewed, as if it was clicked in nodes tree.
 - [Actions](#actions): There are to types:
@@ -54,7 +62,7 @@ Nodes can be either folder or apps. They appear as items in the apps tree.
 
 1. make a folder in the apps directory. A node's name is the same as it's folder's name
 
-   Any name is accepted, except those staring with either an underscore ( `_` ), or the letter `v`. These letters are reserved for [actions](#actions) and versions
+   Any name is accepted, except those staring with either an underscore ( `_` ), or the letter `v`. These letters are reserved for [actions](#actions) and [versions](#versions)
 
 #### Folder tree example
 
@@ -130,15 +138,19 @@ Clicking it with **middle mouse button** shows the exe/msi/zip/rar file in file 
 
 #### Description
 
-A documentation can contain one or more markdown files to be displayed, an icon, and a list of screen-shots.
+A documentation can contain one or more markdown / HTML / plain text files to be displayed, an icon, and a list of screen-shots.
 
 #### Creation
 
 1. Create a folder inside of the node folder, named `_docs`
 
-##### Markdown pages
+##### Pages
 
-1. Create/paste any markdown file to the `_docs` folder. Make sure it has the extension `.md`
+1. Create/paste any markdown/HTML/plain text file to the `_docs` folder.
+
+   Markdown file should have the extension `.md` or `.markdown`  
+   HTML files should be `.html` or `.htm`
+   Plain text files should be `.txt`
 
 ##### Icon
 
@@ -169,9 +181,9 @@ A documentation can contain one or more markdown files to be displayed, an icon,
 
 #### Appearance in AutoRun interface
 
-##### Markdown pages
+##### Pages
 
-Displayed in the center of the app, each markdown file has it's own tab, with the file name (without extension) shown as tab name
+Displayed in the center of the app, each documentation file has it's own tab, with the file name (without extension) shown as tab name
 
 ##### Icon
 
@@ -195,7 +207,7 @@ Versions are used to have different versions of a software in a single [node](#n
 
 1. Inside the node folder, create a new folder starting `v`. The rest of the name is the version's name. For example a version with folder name `v5.4.3` has the name `5.4.3`. (Any name can be used as long as it doesn't contain illegal characters for paths (`\/:*?"<>|`))
 2. Create the [actions](#actions) inside the version folder, as you did when creating [nodes](#nodes).
-3. ***[Optional]*** Create a markdown file named `info.md` to show it as a separate tab named "version: \<version name\>". You can insert a changelog or breaking changes warning there.
+3. ***[Optional]*** Create a documentation file named `info` (valid formats and extensions were explained earlier) to show it as a separate tab named "version: \<version name\>". You can insert a changelog or breaking changes warning there.
 
 #### Folder tree example
 
