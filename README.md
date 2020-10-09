@@ -32,7 +32,7 @@ Links inside markdown files can have special URIs, which can link to:
   - `runaction://path/to/node/action-name`: If the user clicks on the link, the action will be invoked (it's file will be opened), as if it's button was clicked.
   - `showaction://path/to/node/action-name`: If the user clicks on the link, the action's file will be shown in file explorer, as if it's button was middle-clicked (clicked with middle mouse button).
 
-**Note: raplace `path/to/node` in URIs with the path to your node, for example in this node tree the node `Chrome` is the target:**
+**Note: replace `path/to/node` in URIs with the path to your node, for example in this node tree the node `Chrome` is the target:**
 
 - `Apps`
   - `Browsers`
@@ -243,7 +243,7 @@ NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
 5. Change the label of the CD/DVD because it will be root node-s name and Auto-AutoRun window title.
 6. Copy the contents of the root node into the root folder (not the folder itself)
 7. Now your app CD/DVD is ready! (Test it before publishing)
-   
+
    The CD's folder tree should look like this:
 
    - autorun.exe
