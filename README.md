@@ -22,7 +22,7 @@ The window contains:
 
 ### Docuentation pages
 
-You can learn markdown [here](https://www.markdowntutorial.com/).
+You can learn markdown [here](https://commonmark.org/help/tutorial).  
 **OR** HTML [here](https://w3schools.com/html)
 
 Markdown files should end with `.md` (recommended) or `.markdown`  
