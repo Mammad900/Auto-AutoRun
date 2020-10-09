@@ -255,7 +255,7 @@ namespace Auto_AutoRun
                 btn.Margin = new Padding(2, 0, 2, 0);
                 btn.Height = 21;
                 btn.Click += OpenResourceButton;
-                btn.MouseClick += OpenResourceFolderButton;
+                btn.MouseUp += OpenResourceFolderButton;
                 VersionActions.Controls.Add(btn);
             }
 
