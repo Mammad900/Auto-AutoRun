@@ -69,8 +69,29 @@ namespace Auto_AutoRun
                         ShowIcon = false;
                     }
                     Text = rootnode.Name;
+
+                    #region Hide tree if there is only one node
+                    if (rootnode.Childs.Count == 0)
+                    {
+                        // The root node is alone and bored; let's not show it being alone and make it sad
+                        AppsTree.Visible = false;
+                        Tabs.Left=12;
+                        Tabs.Width = ClientSize.Width - 12-Tabs.Left;
+
+                        VersionSelect.Left = 62;
+
+                        label1.Left=12;
+
+                        AppIcon.Left = 12;
+
+                        AppTitle.Left = 46;
+
+
+                    }
+                    #endregion
+
                     ResumeLayout();
-                }),res);
+                }), res);
             };
             back.RunWorkerAsync(path);
         }
@@ -380,7 +401,6 @@ namespace Auto_AutoRun
 
         void TryRunCode(string message,Action act)
         {
-
             try
             {
                 act();
