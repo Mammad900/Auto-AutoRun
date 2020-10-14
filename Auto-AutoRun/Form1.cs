@@ -11,6 +11,7 @@ namespace Auto_AutoRun
     public partial class Form1 : Form
     {
         string[] args;
+        int AppTitleOriginalX;
         public Form1(string[] args)
         {
             this.args = args;
@@ -94,6 +95,7 @@ namespace Auto_AutoRun
                 }), res);
             };
             back.RunWorkerAsync(path);
+            AppTitleOriginalX = AppTitle.Left;
         }
 
         TreeNode populateTree(Apps.CollectionNode root)
@@ -120,10 +122,12 @@ namespace Auto_AutoRun
             if (app.Docs!=null)
             {
                 AppIcon.Image = app.Docs.Icon;
+                AppTitle.Left = AppTitleOriginalX; // Restore app title position
             }
             else
             {
                 AppIcon.Image = null;
+                AppTitle.Left = AppIcon.Left; // Hide app icon (reuse it's space)
             }
             #endregion
 
