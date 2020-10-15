@@ -32,7 +32,7 @@ namespace Autorun_API
                     html = File.ReadAllText(file);
                     break;
                 case ".txt":
-                    html = "<div class='markdown-body'>" + (File.ReadAllText(file).Replace("\r\n", "<br/>").Replace("\n\r", "<br/>").Replace("\r", "<br/>").Replace("\n", "<br/>")) + "</div>";
+                    html = PrependHTML+"<div class='markdown-body'>" + (File.ReadAllText(file).Replace("\r\n", "<br/>").Replace("\n\r", "<br/>").Replace("\r", "<br/>").Replace("\n", "<br/>")) + "</div>";
                     break;
                 default:
                     throw new NotSupportedException("The file format cannot be converted to HTML or isn't supported by Auto-Autorun");
