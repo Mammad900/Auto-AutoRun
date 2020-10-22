@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.AppsTree = new System.Windows.Forms.TreeView();
             this.Tabs = new System.Windows.Forms.TabControl();
             this.ScreenshotTab = new System.Windows.Forms.TabPage();
@@ -38,9 +39,13 @@
             this.VersionSelect = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.VersionActions = new System.Windows.Forms.FlowLayoutPanel();
+            this.DocPageContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyHTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showFileInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tabs.SuspendLayout();
             this.ScreenshotTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).BeginInit();
+            this.DocPageContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // AppsTree
@@ -145,6 +150,28 @@
             this.VersionActions.Size = new System.Drawing.Size(354, 21);
             this.VersionActions.TabIndex = 9;
             // 
+            // DocPageContextMenu
+            // 
+            this.DocPageContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyHTMLToolStripMenuItem,
+            this.showFileInExplorerToolStripMenuItem});
+            this.DocPageContextMenu.Name = "DocPageContextMenu";
+            this.DocPageContextMenu.Size = new System.Drawing.Size(181, 70);
+            // 
+            // copyHTMLToolStripMenuItem
+            // 
+            this.copyHTMLToolStripMenuItem.Name = "copyHTMLToolStripMenuItem";
+            this.copyHTMLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyHTMLToolStripMenuItem.Text = "Copy HTML";
+            this.copyHTMLToolStripMenuItem.Click += new System.EventHandler(this.copyHTMLToolStripMenuItem_Click);
+            // 
+            // showFileInExplorerToolStripMenuItem
+            // 
+            this.showFileInExplorerToolStripMenuItem.Name = "showFileInExplorerToolStripMenuItem";
+            this.showFileInExplorerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showFileInExplorerToolStripMenuItem.Text = "Show file in explorer";
+            this.showFileInExplorerToolStripMenuItem.Click += new System.EventHandler(this.showFileInExplorerToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +191,7 @@
             this.Tabs.ResumeLayout(false);
             this.ScreenshotTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).EndInit();
+            this.DocPageContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,6 +209,9 @@
         private System.Windows.Forms.ComboBox VersionSelect;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel VersionActions;
+        private System.Windows.Forms.ContextMenuStrip DocPageContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem copyHTMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showFileInExplorerToolStripMenuItem;
     }
 }
 

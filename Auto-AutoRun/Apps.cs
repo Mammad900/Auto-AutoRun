@@ -162,6 +162,7 @@ namespace Autorun_API
                             if (System.IO.File.Exists(file + item))
                             {
                                 ver.VersionInfo = ReadDocFile(file + item);
+                                ver.VersionInfoPath = file + item;
                                 break;
                             }
                         }
@@ -330,7 +331,7 @@ namespace Autorun_API
                         {
                             if (Path.GetExtension(file) == item)
                             {
-                                Pages.Add(new string[] { Path.GetFileNameWithoutExtension(file), ReadDocFile(file) });
+                                Pages.Add(new string[] { Path.GetFileNameWithoutExtension(file), ReadDocFile(file) ,file});
                                 break;
                             }
                         }
@@ -379,6 +380,7 @@ namespace Autorun_API
                 public List<NodeAction> Actions = new List<NodeAction>();
                 public string Name;
                 public string VersionInfo;
+                public string VersionInfoPath;
             }
         }
     }

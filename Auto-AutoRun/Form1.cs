@@ -1,6 +1,7 @@
 ﻿using Autorun_API;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -184,6 +185,9 @@ namespace Auto_AutoRun
                     browser.Url = new Uri("about:blank");
                     browser.Document.Write(page[1]);
                     browser.Navigating += webBrowser_Navigating;
+                    browser.Tag = page[2];
+                    browser.ContextMenuStrip = DocPageContextMenu;
+                    browser.IsWebBrowserContextMenuEnabled = false;
                     tab.Controls.Add(browser);
 
                     Tabs.TabPages.Insert(Math.Max(Tabs.TabPages.Count - 1,0), tab);
@@ -306,6 +310,9 @@ namespace Auto_AutoRun
                 browser.Document.Write(version.VersionInfo);
                 browser.Dock = DockStyle.Fill;
                 browser.Navigating += webBrowser_Navigating;
+                browser.Tag = version.VersionInfoPath;
+                browser.ContextMenuStrip = DocPageContextMenu;
+                browser.IsWebBrowserContextMenuEnabled = false;
                 tab.Controls.Add(browser);
                 Tabs.TabPages.Add(tab);
             }
@@ -427,6 +434,45 @@ namespace Auto_AutoRun
                         throw;
                 }
                 return;
+            }
+        }
+
+        private void showFileInExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+                    
+                    Process.Start("explorer.exe", $"/select,\"{sourceControl.Tag as string}\"");
+                }
+            }
+            
+        }
+
+        private void copyHTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Try to cast the sender to a ToolStripItem
+            ToolStripItem menuItem = sender as ToolStripItem;
+            if (menuItem != null)
+            {
+                // Retrieve the ContextMenuStrip that owns this ToolStripItem
+                ContextMenuStrip owner = menuItem.Owner as ContextMenuStrip;
+                if (owner != null)
+                {
+                    // Get the control that is displaying this context menu
+                    Control sourceControl = owner.SourceControl;
+
+                    var html = (sourceControl as WebBrowser).DocumentText;
+                    Clipboard.SetText(html); // Copy HTML data to clipboard
+                }
             }
         }
     }
