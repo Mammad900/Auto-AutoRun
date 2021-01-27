@@ -182,8 +182,17 @@ namespace Auto_AutoRun
 
                     var browser = new WebBrowser();
                     browser.Dock = DockStyle.Fill;
-                    browser.Url = new Uri("about:blank");
-                    browser.Document.Write(page[1]);
+                    if ((page[2].EndsWith(".html" , true, System.Globalization.CultureInfo.CurrentCulture)) ||
+                        (page[2].EndsWith(".htm"  , true, System.Globalization.CultureInfo.CurrentCulture)) || 
+                        (page[2].EndsWith(".xhtml", true, System.Globalization.CultureInfo.CurrentCulture)) )
+                    {
+                        browser.Url = new Uri("file://" + (page[2].Replace('\\', '/')));
+                    }
+                    else
+                    {
+                        browser.Url = new Uri("about:blank");
+                        browser.Document.Write(page[1]);
+                    }
                     browser.Navigating += webBrowser_Navigating;
                     browser.Tag = page[2];
                     browser.ContextMenuStrip = DocPageContextMenu;
