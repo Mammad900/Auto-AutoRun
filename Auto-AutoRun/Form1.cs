@@ -201,6 +201,15 @@ namespace Auto_AutoRun
 
                     Tabs.TabPages.Insert(Math.Max(Tabs.TabPages.Count - 1,0), tab);
                 }
+
+                if ((Tabs.TabPages.Count > 1) && (Tabs.TabPages.Contains(ScreenshotTab)))
+                {
+                    var docPaths = from TabPage tab in Tabs.TabPages
+                                   where tab != ScreenshotTab
+                                   select tab;
+
+                    Tabs.SelectedTab = docPaths.Last();
+                }
                 #endregion
 
                 #region Screen shots
