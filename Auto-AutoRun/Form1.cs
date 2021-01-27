@@ -335,7 +335,7 @@ namespace Auto_AutoRun
                 e.Cancel = true;
                 if (e.Url.Scheme.ToLower() == "node")
                 {
-                    var path = rootnode.Name + "\\" + (e.Url.AbsolutePath.Replace("/", "\\").Trim('\\'));
+                    var path = rootnode.Name + "\\" + (((e.Url.Host) + (e.Url.AbsolutePath)).Replace("/", "\\").Trim('\\'));
                     var node = GetNodeFromPath(AppsTree.Nodes[0], path);
                     if (node == null) return;
                     AppsTree.SelectedNode = node;
