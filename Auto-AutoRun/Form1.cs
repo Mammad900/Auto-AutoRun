@@ -512,8 +512,21 @@ namespace Auto_AutoRun
 
         private void openImageInExternalAppToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(CurrentNode.Docs!=null && CurrentNode.Docs.Icon!=null)
-                Process.Start(CurrentNode.Docs.IconPath);
+            if (CurrentNode.Docs != null && CurrentNode.Docs.Icon != null)
+            {
+                var originalFIle = CurrentNode.Docs.IconPath;
+                var ext = Path.GetExtension(originalFIle);
+                var path = Path.GetDirectoryName(originalFIle) + "\\";
+                var fileWithOutExtension = Path.GetFileNameWithoutExtension(originalFIle);
+                if (File.Exists(path + fileWithOutExtension + "-large" + ext))
+                {
+                    Process.Start(path + fileWithOutExtension + "-large" + ext);
+                }
+                else
+                {
+                    Process.Start(CurrentNode.Docs.IconPath);
+                }
+            }
         }
     }
 
