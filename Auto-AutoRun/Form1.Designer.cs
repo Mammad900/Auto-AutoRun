@@ -42,10 +42,14 @@
             this.DocPageContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyHTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showFileInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NodePicContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.openImageInExternalAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyImageToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tabs.SuspendLayout();
             this.ScreenshotTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).BeginInit();
             this.DocPageContextMenu.SuspendLayout();
+            this.NodePicContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // AppsTree
@@ -94,6 +98,7 @@
             // 
             // AppIcon
             // 
+            this.AppIcon.ContextMenuStrip = this.NodePicContextMenu;
             this.AppIcon.Location = new System.Drawing.Point(246, 12);
             this.AppIcon.Name = "AppIcon";
             this.AppIcon.Size = new System.Drawing.Size(32, 32);
@@ -156,7 +161,7 @@
             this.copyHTMLToolStripMenuItem,
             this.showFileInExplorerToolStripMenuItem});
             this.DocPageContextMenu.Name = "DocPageContextMenu";
-            this.DocPageContextMenu.Size = new System.Drawing.Size(181, 70);
+            this.DocPageContextMenu.Size = new System.Drawing.Size(181, 48);
             // 
             // copyHTMLToolStripMenuItem
             // 
@@ -171,6 +176,28 @@
             this.showFileInExplorerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showFileInExplorerToolStripMenuItem.Text = "Show file in explorer";
             this.showFileInExplorerToolStripMenuItem.Click += new System.EventHandler(this.showFileInExplorerToolStripMenuItem_Click);
+            // 
+            // NodePicContextMenu
+            // 
+            this.NodePicContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openImageInExternalAppToolStripMenuItem,
+            this.copyImageToClipboardToolStripMenuItem});
+            this.NodePicContextMenu.Name = "NodePicContextMenu";
+            this.NodePicContextMenu.Size = new System.Drawing.Size(220, 70);
+            // 
+            // openImageInExternalAppToolStripMenuItem
+            // 
+            this.openImageInExternalAppToolStripMenuItem.Name = "openImageInExternalAppToolStripMenuItem";
+            this.openImageInExternalAppToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.openImageInExternalAppToolStripMenuItem.Text = "Open image in external app";
+            this.openImageInExternalAppToolStripMenuItem.Click += new System.EventHandler(this.openImageInExternalAppToolStripMenuItem_Click);
+            // 
+            // copyImageToClipboardToolStripMenuItem
+            // 
+            this.copyImageToClipboardToolStripMenuItem.Name = "copyImageToClipboardToolStripMenuItem";
+            this.copyImageToClipboardToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.copyImageToClipboardToolStripMenuItem.Text = "Copy image to clipboard";
+            this.copyImageToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copyImageToClipboardToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -192,6 +219,7 @@
             this.ScreenshotTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AppIcon)).EndInit();
             this.DocPageContextMenu.ResumeLayout(false);
+            this.NodePicContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,6 +240,9 @@
         private System.Windows.Forms.ContextMenuStrip DocPageContextMenu;
         private System.Windows.Forms.ToolStripMenuItem copyHTMLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showFileInExplorerToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip NodePicContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem openImageInExternalAppToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyImageToClipboardToolStripMenuItem;
     }
 }
 

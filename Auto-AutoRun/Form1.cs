@@ -13,12 +13,16 @@ namespace Auto_AutoRun
     {
         string[] args;
         int AppTitleOriginalX;
+
         public Form1(string[] args)
         {
             this.args = args;
             InitializeComponent();
         }
+
         Apps.CollectionNode rootnode;
+        Apps.CollectionNode CurrentNode;
+
         private void Form1_Load(object sender, EventArgs e)
         {
             SuspendLayout();
@@ -261,6 +265,8 @@ namespace Auto_AutoRun
 
 
             ResumeLayout();
+
+            CurrentNode = app;
         }
 
         private void OpenResourceButton(object sender, EventArgs e)
@@ -497,6 +503,17 @@ namespace Auto_AutoRun
                     Clipboard.SetText(html); // Copy HTML data to clipboard
                 }
             }
+        }
+
+        private void copyImageToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetImage(AppIcon.Image);
+        }
+
+        private void openImageInExternalAppToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(CurrentNode.Docs!=null && CurrentNode.Docs.Icon!=null)
+                Process.Start(CurrentNode.Docs.IconPath);
         }
     }
 

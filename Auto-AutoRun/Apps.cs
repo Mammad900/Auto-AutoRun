@@ -305,6 +305,8 @@ namespace Autorun_API
                 /// </summary>
                 public Image Icon;
 
+                public string IconPath;
+
                 /// <summary>
                 /// Contains the name of the screen-shots directory excluding the underscore
                 /// </summary>
@@ -371,6 +373,7 @@ namespace Autorun_API
                     if (File.Exists(file))
                     {
                         Icon = Image.FromFile(file);
+                        IconPath = file;
                     }
                 }
             }
