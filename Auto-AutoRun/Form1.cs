@@ -344,6 +344,11 @@ namespace Auto_AutoRun
                 e.Cancel = true;
                 if (e.Url.Scheme.ToLower() == "node")
                 {
+                    if ((e.Url.Host == "")&&(e.Url.AbsolutePath.Replace("/","")==""))
+                    {
+                        AppsTree.SelectedNode = AppsTree.Nodes[0];
+                        return;
+                    }
                     var path = rootnode.Name + "\\" + (((e.Url.Host) + (e.Url.AbsolutePath)).Replace("/", "\\").Trim('\\'));
                     var node = GetNodeFromPath(AppsTree.Nodes[0], path);
                     if (node == null) return;
