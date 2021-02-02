@@ -236,6 +236,14 @@ namespace Auto_AutoRun
                         pb.Image = item;
                         pb.SizeMode = PictureBoxSizeMode.Zoom;
                         pb.Size = GetScreenShotSize(pb, Screenshots);
+                        pb.Cursor = Cursors.Hand;
+                        pb.Click += new EventHandler((object sender2, EventArgs e2) =>
+                         {
+                             if((sender2 as PictureBox).Image.Tag != null)
+                             {
+                                 Process.Start((sender2 as PictureBox).Image.Tag as string);
+                             }
+                         });
                         Screenshots.Controls.Add(pb);
                     }
                 }

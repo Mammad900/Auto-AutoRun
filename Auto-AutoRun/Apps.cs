@@ -359,7 +359,9 @@ namespace Autorun_API
                     {
                         try
                         {
-                            ScreenShots.Add(Image.FromFile(item));
+                            var img = Image.FromFile(item);
+                            img.Tag = item;
+                            ScreenShots.Add(img);
                         }
                         catch
                         {
