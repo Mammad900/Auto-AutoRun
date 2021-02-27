@@ -68,14 +68,13 @@ Nodes can be either folder or apps. They appear as items in the apps tree.
 
 - `Auto-AutoRun.exe`
 - `MarkdownSharp.dll`
-- `Apps` -> Root Node
-  - `Browsers` -> Node
-    - `Chrome` -> Node
-      - ...
-    - `FireFox` -> Node
-      - ...
-    - `Edge` -> Node
-      - ...
+- `Browsers` -> Node
+  - `Chrome` -> Node
+    - ...
+  - `FireFox` -> Node
+    - ...
+  - `Edge` -> Node
+    - ...
 
 #### Appearance in AutoRun interface
 
@@ -102,7 +101,7 @@ Actions are files that can be opened by clicking a button on the Auto-AutoRun wi
    4. RAR files (.rar)
    5. Text file (.txt):
 
-      Text files are not opened. They are considered as pointers to the actual file, which can be of any type. these files should contain a **relative** path to the actual file. An example is the Visual Studio setup, which doesn't work if it gets renamed. (e.g. It should be always `vs_community.exe`)
+      Text files are not opened. They are considered as pointers to the actual file, which can be of any type. these files should contain a **relative** path to the actual file. An example is the Visual Studio setup, which wont't work if it gets renamed. (e.g. It should be always `vs_community.exe`)
 
 #### Folder tree example
 
@@ -149,7 +148,7 @@ A documentation can contain one or more markdown / HTML / plain text files to be
 1. Create/paste any markdown/HTML/plain text file to the `_docs` folder.
 
    Markdown file should have the extension `.md` or `.markdown`  
-   HTML files should be `.html` or `.htm`
+   HTML files should be `.html` or `.htm`  
    Plain text files should be `.txt`
 
 ##### Icon
@@ -191,7 +190,7 @@ Shown on the left of the [node](#nodes) name, with 32px size
 
 ##### Screen-shots
 
-Shown in a separate tab named 'Screenshots', Each picture is 600px wide, 400px high
+Shown in a separate tab named 'Screenshots'
 
 ### Versions
 
@@ -235,11 +234,10 @@ Version actions are shown as node actions, but with a little difference:
 
 - Only the actions of the selected version can be seen
 - They appear below the node actions (a bit lower in position)
-- Middle-click does not work with it (although it is implemented)
 
 ## How to use it inside a CD or DVD
 
-NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
+NOTE: Step 4 does not have any effect if you're not using a CD/DVD.
 
 1. Download Auto-AutoRun executable (`Auto-AutoRun.exe`) from the [releases](https://github.com/Mammad900/Auto-AutoRun/releases) page and copy it to the root of the CD/DVD with the name `autorun.exe`
 2. Download `MarkdownSharp.dll` from the [releases](https://github.com/Mammad900/Auto-AutoRun/releases) page and copy it to the root of the CD/DVD with the name `MarkdownSharp.dll`
@@ -252,7 +250,7 @@ NOTE: Step 3 does not have any effect if you're not using a CD/DVD.
    ICON=Icon.ico
    ```
 
-5. Change the label of the CD/DVD because it will be root node-s name and Auto-AutoRun window title.
+5. Change the label of the CD/DVD because it will be root node's name and Auto-AutoRun window title.
 6. Copy the contents of the root node into the root folder (not the folder itself)
 7. Now your app CD/DVD is ready! (Test it before publishing)
 
